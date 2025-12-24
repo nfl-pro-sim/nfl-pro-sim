@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NFL PRO SIM 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+                "cannon-es": "https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js",
+                "gsap": "https://unpkg.com/gsap@3.12.5/index.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-layer">
+    <div id="main-menu" class="modal">
+        <h1 class="logo">NFL PRO SIM <span class="year">2025</span></h1>
+        
+        <div class="menu-sections">
+            <div class="section">
+                <h3>SELECT HOME TEAM</h3>
+                <select id="home-team-select">
+                    <option value="KC">Kansas City Chiefs</option>
+                    <option value="SF">San Francisco 49ers</option>
+                    <option value="DAL">Indianapolis Colts</option>
+                    <option value="PHI">Philadelphia Eagles</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <h3>GAME SETTINGS</h3>
+                <label>Quarter Length:</label>
+                <select id="quarter-length">
+                    <option value="300">5 Minutes</option>
+                    <option value="600">10 Minutes</option>
+                    <option value="900">15 Minutes</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="start-game-btn" class="primary-btn">KICK OFF</button>
+    </div>
+
+    <div id="hud" class="hidden">
+        <div id="scoreboard" class="broadcast-panel">
+            <div class="team-score">
+                <span id="home-name-display">KC</span>
+                <span id="home-score">0</span>
+            </div>
+            <div class="game-clock">
+                <span id="quarter">Q1</span>
+                <span id="time-display">15:00</span>
+            </div>
+            <div class="team-score">
+                <span id="away-score">0</span>
+                <span id="away-name-display">SF</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="playcall-menu" class="modal hidden">
+            <h2>CHOOSE PLAY</h2>
+            <div class="play-grid">
+                <button class="play-card" data-play="pass_deep">
+                    <div class="play-name">Hail Mary</div>
+                    <div class="play-type">Deep Pass</div>
+                </button>
+                <button class="play-card" data-play="run_middle">
+                    <div class="play-name">HB Dive</div>
+                    <div class="play-type">Inside Run</div>
+                </button>
+                <button class="play-card" data-play="pass_short">
+                    <div class="play-name">Slants</div>
+                    <div class="play-type">Quick Pass</div>
+                </button>
+            </div>
+        </div>
+
+        <div id="controls-hint">
+            WASD: Move | SPACE: Snap | CLICK: Pass
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
